@@ -22,5 +22,14 @@ suite('Unit Tests', function(){
     assert.equal(convertHandler.getNum('2.8/4km'), 0.7);
   });
 
+  test('convertHandler should correctly return an error on a double-fraction (i.e. 3/2/3)', function() {
+    assert.isUndefined(convertHandler.getNum('2/2/1kg'));
+  });
+
+  test('convertHandler should correctly default to a numerical input of 1 when no numerical input is provided', function() {
+    assert.equal(convertHandler.getNum('km'), 1);
+  });
+
+
   
 });
