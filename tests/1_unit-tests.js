@@ -30,6 +30,17 @@ suite('Unit Tests', function(){
     assert.equal(convertHandler.getNum('km'), 1);
   });
 
+  test('convertHandler should correctly read each valid input unit', function() {
+    const inputsUnit = ['gal', 'l', 'mi', 'km', 'lbs', 'kg', 'GAL', 'L', 'MI', 'KM', 'LBS', 'KG'];
+    const expectedInputsUnit = ['gal', 'L', 'mi', 'km', 'lbs', 'kg', 'gal', 'L', 'mi', 'km', 'lbs', 'kg'];
+    inputsUnit.forEach((unit, index) => {
+      assert.equal(convertHandler.getUnit(unit), expectedInputsUnit[index]);
+    });
+  });
+
+  test('convertHandler should correctly return an error for an invalid input unit', function() {
+    assert.isUndefined(convertHandler.getUnit('5g'));
+  });
 
   
 });
