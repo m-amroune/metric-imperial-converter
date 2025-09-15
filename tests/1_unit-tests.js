@@ -42,5 +42,23 @@ suite('Unit Tests', function(){
     assert.isUndefined(convertHandler.getUnit('5g'));
   });
 
+  test('convertHandler should return the correct return unit for each valid input unit', function() {
+    const inputsUnit = ['gal', 'L', 'mi', 'km', 'lbs', 'kg'];
+    const expectedReturnUnit = ['L', 'gal', 'km', 'mi', 'kg', 'lbs'];
+
+    inputsUnit.forEach((unit, index) => {
+      assert.equal(convertHandler.getReturnUnit(unit), expectedReturnUnit[index]);
+    });
+  });
+
+  test('convertHandler should correctly return the spelled-out string unit for each valid input unit', function() {
+    const inputsUnit = ['gal', 'L', 'mi', 'km', 'lbs', 'kg'];
+    const expectedSpelledUnit = ['gallons', 'liters', 'miles', 'kilometers', 'pounds', 'kilograms'];
+
+    inputsUnit.forEach((unit, index) => {
+      assert.equal(convertHandler.spellOutUnit(unit), expectedSpelledUnit[index]);
+    });
+  });
+
   
 });
