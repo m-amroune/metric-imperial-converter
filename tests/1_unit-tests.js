@@ -60,5 +60,47 @@ suite('Unit Tests', function(){
     });
   });
 
+   test('convertHandler should correctly convert gal to L', function() {
+     const inputNum = 1;
+     const inputUnit = 'gal';
+     const expected = 3.78541;
+     assert.approximately(convertHandler.convert(inputNum, inputUnit), expected, 0.1);
+   });
+
+  test('convertHandler should correctly convert L to gal', function() {
+    const inputNum = 1;
+    const inputUnit = 'L';
+    const expected = 0.26417;
+    assert.approximately(convertHandler.convert(inputNum, inputUnit), expected, 0.1);
+  });
+
+  test('convertHandler should correctly convert mi to km', function() {
+    const inputNum = 1;
+    const inputUnit = 'mi';
+    const expected = 1.60934;
+    assert.approximately(convertHandler.convert(inputNum, inputUnit), expected, 0.1);
+  });
+
+  test('convertHandler should correctly convert km to mi', function() {
+    const inputNum = 1;
+    const inputUnit = 'km';
+    const expected = 0.62137; 
+    assert.approximately(convertHandler.convert(inputNum, inputUnit), expected, 0.1);
+  });
+
+  test('convertHandler should correctly convert lbs to kg', function() {
+    const inputNum = 1;
+    const inputUnit = 'lbs';
+    const expected = 0.45359;
+    assert.approximately(convertHandler.convert(inputNum, inputUnit), expected, 0.1);
+  });
+
+  test('convertHandler should correctly convert kg to lbs', function() {
+    const inputNum = 1;
+    const inputUnit = 'kg';
+    const expected = 2.20462; 
+    assert.approximately(convertHandler.convert(inputNum, inputUnit), expected, 0.1);
+  });
+
   
 });
