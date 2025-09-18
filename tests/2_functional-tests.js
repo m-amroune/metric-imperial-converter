@@ -58,6 +58,21 @@ suite('Functional Tests', function() {
       });
   });
 
+  test('Convert with no number such as kg: GET request to /api/convert', function(done) {
+    chai
+      .request(server)
+      .get('/api/convert')
+      .query({ input: 'kg' })
+      .end(function(err, res) {
+        assert.equal(res.status, 200);
+        assert.equal(res.body.initNum, 1);
+        assert.equal(res.body.initUnit, 'kg');
+        assert.approximately(res.body.returnNum, 2.20462, 0.1);
+        assert.equal(res.body.returnUnit, 'lbs');
+        done();
+      });
+  });
+
 
   
 });
